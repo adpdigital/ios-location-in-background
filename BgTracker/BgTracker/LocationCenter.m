@@ -71,7 +71,7 @@ static NSString* kRegionMonitorID = @"co.gongch.lab.BgTracker.defaultRegion";
         _locationRecords = [[NSMutableArray alloc] init];
         if (array != nil) {
             [_locationRecords addObjectsFromArray:array];
-            NSLog(@"LocationCenter loaded %ld records", array.count);
+            NSLog(@"LocationCenter loaded %ld records", (unsigned long) array.count);
         } else {
             NSLog(@"LocationCenter loaded 0 record");
         }
@@ -308,7 +308,7 @@ static NSString* kRegionMonitorID = @"co.gongch.lab.BgTracker.defaultRegion";
     if (_dataDirty) {
         [NSKeyedArchiver archiveRootObject:_locationRecords toFile:[self datafilePath]];
         _dataDirty = NO;
-        NSLog(@"LocationCenter saved %ld records", _locationRecords.count);
+        NSLog(@"LocationCenter saved %ld records", (unsigned long) _locationRecords.count);
     } else {
         NSLog(@"LocationCenter no record to save");
     }
