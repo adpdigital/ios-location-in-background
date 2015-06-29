@@ -86,7 +86,19 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"[Lat=%+.6f,Lng=%+.6f]", self.latitude, self.longitude];
+    return [NSString stringWithFormat:@"[Lat=%+.4f,Lng=%+.4f]", self.latitude, self.longitude];
+}
+
+- (NSString *)locationDescription {
+    if (self.type == LCBackgroundMonitoring) {
+        return [NSString stringWithFormat:@"%@ (SCLS)", self.description];
+    } else if (self.type == LCExitRegion) {
+        return [NSString stringWithFormat:@"%@ (Exit Region)", self.description];
+    } else if (self.type == LCVisitedLocation) {
+        return [NSString stringWithFormat:@"%@ (Visited Location)", self.description];
+    } else {
+        return [NSString stringWithFormat:@"%@", self.description];
+    }
 }
 
 #pragma mark - MKAnnotaion
@@ -107,7 +119,7 @@
 }
 
 - (NSString *)subtitle {
-    return [self description];
+    return self.locationDescription;
 }
 
 @end

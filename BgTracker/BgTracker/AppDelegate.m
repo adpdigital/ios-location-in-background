@@ -19,7 +19,7 @@
 - (BOOL)application:(nonnull UIApplication *)application willFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions {
     // init user defaults
     NSMutableDictionary *defaultsDictionary = [[NSMutableDictionary alloc] init];
-    [defaultsDictionary setObject:@YES forKey:kTrackingInForeground];
+    [defaultsDictionary setObject:@NO forKey:kTrackingInForeground];
     [defaultsDictionary setObject:@YES forKey:kTrackingInBackground];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultsDictionary];

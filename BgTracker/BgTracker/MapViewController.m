@@ -22,8 +22,7 @@
     
     self.locationCenter = [LocationCenter sharedLocationCenter];
     [self.mapView addAnnotations:self.locationCenter.locationRecords];
-
-//    self.mapView.showsUserLocation = YES;
+    [self.locationCenter addDelegate:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

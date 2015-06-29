@@ -43,15 +43,7 @@
     NSString *labelData = [dateFormatter stringFromDate:record.timestamp];
     
     cell.textLabel.text = labelData;
-    if (record.type == LCBackgroundMonitoring) {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (SCLS)", record];
-    } else if (record.type == LCExitRegion) {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (Exit Region)", record];
-    } else if (record.type == LCVisitedLocation) {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (Visited Location)", record];
-    } else {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", record];
-    }
+    cell.detailTextLabel.text = record.locationDescription;
     
     return cell;
 }

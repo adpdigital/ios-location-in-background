@@ -31,5 +31,6 @@ typedef enum : NSInteger {
 @property (assign) double latitude;
 @property (assign) double longitude;
 @property (assign) double altitude;
+@property (copy, readonly) NSString *locationDescription;
 
 @end
